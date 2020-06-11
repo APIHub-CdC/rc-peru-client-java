@@ -144,38 +144,56 @@ En el archivo ApiTest.java, que se encuentra en ***src/test/java/io/rc/pe/client
 
 ```java
 public class ApiTest {
-	
-	private Logger logger = LoggerFactory.getLogger(ApiTest.class.getName());
-	private final LoanAmountEstimatorApi api = new LoanAmountEstimatorApi();
-	private String xApiKey = "your_api_key";
-	private String username = "your_username";
-	private String password = "your_password";	
-	
-	private ApiClient apiClient = null;
+    
+    private Logger logger = LoggerFactory.getLogger(ApiTest.class.getName());
+    private final ReporteCreditoPeruApi api = new ReporteCreditoPeruApi();
+    private ApiClient apiClient = null;
 
-	@Before()
-	public void setUp() {
-		this.apiClient = api.getApiClient();
-		this.apiClient.setBasePath("the_url");
-		OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
-			    .readTimeout(30, TimeUnit.SECONDS)
-			    .addInterceptor(new SignerInterceptor())
-			    .build();
-		apiClient.setHttpClient(okHttpClient);
-	}
+    private String xApiKey = "your_api_key";
+    private String username = "your_username";
+    private String password = "your_password";
 
-	@Test
-	public void getLAEByFolioConsultaTest() throws ApiException {
-		PeticionFolioConsulta request = new PeticionFolioConsulta();
-		
-		request.setFolioOtorgante("1");
-		request.setSegmento(CatalogoSegmento.PP);
-		request.setFolioConsulta("386636538");
-		
-		Respuesta response = api.getLAEByFolioConsulta(this.xApiKey, this.username, this.password, request);
-		logger.info(response.toString());
-	}
-
+    @Before()
+    public void setUp() {
+        this.apiClient = api.getApiClient();
+        this.apiClient.setBasePath("the_url");
+        OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+                .readTimeout(30, TimeUnit.SECONDS)
+                .addInterceptor(new SignerInterceptor())
+                .build();
+        apiClient.setHttpClient(okHttpClient);
+    }
+    
+    @Test
+    public void getRCTest() throws ApiException {
+        Peticion request = new Peticion();
+        Integer estatusOK = 200;
+        Integer estatusNoContent = 204;
+        
+        try {
+            
+            request.setFolio("100");
+            request.setNumeroDocumento("80111521");
+            request.setTipoDocumento("1");
+            
+            ApiResponse<?> response = api.getGenericRC(xApiKey, username, password, request);
+  
+            Assert.assertTrue(estatusOK.equals(response.getStatusCode()));
+            
+            if(estatusOK.equals(response.getStatusCode())) {
+                Respuesta responseOK = (Respuesta) response.getData();
+                logger.info(responseOK.toString());
+            }
+            
+        }catch (ApiException e) {
+            if(!estatusNoContent.equals(e.getCode())) {
+                logger.info(e.getResponseBody());
+            }
+            Assert.assertTrue(estatusOK.equals(e.getCode()));
+        }
+        
+    }
+    
 }
 
 ```
