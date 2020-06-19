@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 
 @ApiModel(description = "Esta sección muestra información general de la consulta realizada.")
-public class DatosConsuta {
+public class DatosConsulta {
   @SerializedName("fechaConsulta")
   private String fechaConsulta = null;
   @SerializedName("numeroConsulta")
@@ -18,7 +18,7 @@ public class DatosConsuta {
   private String usuario = null;
   @SerializedName("tipoCambio")
   private Float tipoCambio = null;
-  public DatosConsuta fechaConsulta(String fechaConsulta) {
+  public DatosConsulta fechaConsulta(String fechaConsulta) {
     this.fechaConsulta = fechaConsulta;
     return this;
   }
@@ -30,7 +30,7 @@ public class DatosConsuta {
   public void setFechaConsulta(String fechaConsulta) {
     this.fechaConsulta = fechaConsulta;
   }
-  public DatosConsuta numeroConsulta(BigDecimal numeroConsulta) {
+  public DatosConsulta numeroConsulta(BigDecimal numeroConsulta) {
     this.numeroConsulta = numeroConsulta;
     return this;
   }
@@ -42,7 +42,7 @@ public class DatosConsuta {
   public void setNumeroConsulta(BigDecimal numeroConsulta) {
     this.numeroConsulta = numeroConsulta;
   }
-  public DatosConsuta otorgante(String otorgante) {
+  public DatosConsulta otorgante(String otorgante) {
     this.otorgante = otorgante;
     return this;
   }
@@ -54,7 +54,7 @@ public class DatosConsuta {
   public void setOtorgante(String otorgante) {
     this.otorgante = otorgante;
   }
-  public DatosConsuta usuario(String usuario) {
+  public DatosConsulta usuario(String usuario) {
     this.usuario = usuario;
     return this;
   }
@@ -66,7 +66,7 @@ public class DatosConsuta {
   public void setUsuario(String usuario) {
     this.usuario = usuario;
   }
-  public DatosConsuta tipoCambio(Float tipoCambio) {
+  public DatosConsulta tipoCambio(Float tipoCambio) {
     this.tipoCambio = tipoCambio;
     return this;
   }
@@ -86,7 +86,7 @@ public class DatosConsuta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DatosConsuta datosConsuta = (DatosConsuta) o;
+    DatosConsulta datosConsuta = (DatosConsulta) o;
     return Objects.equals(this.fechaConsulta, datosConsuta.fechaConsulta) &&
         Objects.equals(this.numeroConsulta, datosConsuta.numeroConsulta) &&
         Objects.equals(this.otorgante, datosConsuta.otorgante) &&

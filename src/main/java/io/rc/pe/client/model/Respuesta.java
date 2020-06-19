@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import io.rc.pe.client.model.ComercioExterior;
 import io.rc.pe.client.model.ComportamientoRCCMFNZ;
 import io.rc.pe.client.model.Consultas;
-import io.rc.pe.client.model.DatosConsuta;
+import io.rc.pe.client.model.DatosConsulta;
 import io.rc.pe.client.model.DatosGenerales;
 import io.rc.pe.client.model.DetalleCreditos;
 import io.rc.pe.client.model.OtrasObligaciones;
@@ -14,7 +14,7 @@ import io.rc.pe.client.model.ResumenCredito;
 
 public class Respuesta {
   @SerializedName("datosConsulta")
-  private DatosConsuta datosConsulta = null;
+  private DatosConsulta datosConsulta = null;
   @SerializedName("resumenCredito")
   private ResumenCredito resumenCredito = null;
   @SerializedName("comportamientoRCC_MFNZ")
@@ -29,16 +29,16 @@ public class Respuesta {
   private Consultas consultas = null;
   @SerializedName("datosGenerales")
   private DatosGenerales datosGenerales = null;
-  public Respuesta datosConsulta(DatosConsuta datosConsulta) {
+  public Respuesta datosConsulta(DatosConsulta datosConsulta) {
     this.datosConsulta = datosConsulta;
     return this;
   }
    
   @ApiModelProperty(value = "")
-  public DatosConsuta getDatosConsulta() {
+  public DatosConsulta getDatosConsulta() {
     return datosConsulta;
   }
-  public void setDatosConsulta(DatosConsuta datosConsulta) {
+  public void setDatosConsulta(DatosConsulta datosConsulta) {
     this.datosConsulta = datosConsulta;
   }
   public Respuesta resumenCredito(ResumenCredito resumenCredito) {
