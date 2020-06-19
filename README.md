@@ -128,7 +128,7 @@ keytool -list -keystore ${KEYSTORE_FILE} \
 
 ### Paso 4. Modificar archivo de configuraciones
 
-Para hacer uso del certificado que se descargó y el keystore que se creó se deberán modificar las rutas que se encuentran e
+Para hacer uso del certificado que se descargó y el keystore que se creó se deberán modificar las rutas que se encuentran en ***src/main/resources/config.properties***
 ```properties
 keystore_file=your_path_for_your_keystore/keystore.jks
 cdc_cert_file=your_path_for_certificate_of_cdc/cdc_cert.pem
@@ -138,7 +138,7 @@ key_password=your_super_secure_password
 ```
 ### Paso 5. Modificar URL y datos de petición
 
-En el archivo ApiTest.java, que se encuentra en ***src/test/java/io/rc/pe/client/api/***. Se deberá modificar los datos de la petición y de la URL para el consumo de la API en setBasePath("the_url"), como se muestra en el siguiente fragmento de código con los datos correspondientes:
+En el archivo ApiTest.java, que se encuentra en ***src/test/java/io/rc/pe/client/api/***. Se deberán modificar los datos de la petición y de la URL para el consumo de la API en setBasePath("the_url"), como se muestra en el siguiente fragmento de código con los datos correspondientes:
 
 > **NOTA:** Los datos de la siguiente petición son solo representativos.
 
