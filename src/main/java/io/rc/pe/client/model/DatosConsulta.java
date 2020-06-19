@@ -100,7 +100,7 @@ public class DatosConsulta {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DatosConsuta {\n");
+    sb.append("class DatosConsulta {\n");
     
     sb.append("    fechaConsulta: ").append(toIndentedString(fechaConsulta)).append("\n");
     sb.append("    numeroConsulta: ").append(toIndentedString(numeroConsulta)).append("\n");
